@@ -1,2 +1,2 @@
 using CUDA
-CUDA.functional()
+println("CUDA is functional: ", CUDA.functional())
