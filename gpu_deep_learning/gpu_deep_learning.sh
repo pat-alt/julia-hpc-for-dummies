@@ -5,12 +5,11 @@
 #SBATCH --time=00:10:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --gpus-per-task=1
 #SBATCH --mem-per-cpu=1G
 #SBATCH --account=innovation
 
 module load 2023r1 julia
-module load cuda/12.1
+# module load cuda/12.1
 
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
 
