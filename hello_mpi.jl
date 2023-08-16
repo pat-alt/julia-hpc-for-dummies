@@ -3,9 +3,9 @@ using MPI
 MPI.Init()
 
 comm = MPI.COMM_WORLD
-print("Hello world, I am rank $(MPI.Comm_rank(comm)) of $(MPI.Comm_size(comm))\n")
+println("Hello world, I am rank $(MPI.Comm_rank(comm)) of $(MPI.Comm_size(comm))")
 MPI.Barrier(comm)
 
-print("P$(MPI.Comm_rank(comm)) behind barrier.")
+println("P$(MPI.Comm_rank(comm)) behind barrier.")
 
 MPI.Finalize()
