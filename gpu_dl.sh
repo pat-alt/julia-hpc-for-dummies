@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH --job-name="gpu_deep_learning.jl"
+#SBATCH --job-name="Julia on GPU"
 #SBATCH --partition=gpu
 #SBATCH --time=00:10:00
 #SBATCH --ntasks=1
@@ -9,8 +9,6 @@
 #SBATCH --mem-per-cpu=1G
 #SBATCH --account=innovation
 
-module load 2023r1 openmpi julia
-module load 2023r1
-module load cuda/12.1
+module load 2022r2 openmpi julia
 
-srun julia gpu_deep_learning.jl > gpu_deep_learning.log
+srun julia gpu_dl.jl > gpu_dl.log

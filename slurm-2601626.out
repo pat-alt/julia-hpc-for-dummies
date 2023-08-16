@@ -1,0 +1,12 @@
+  Activating new environment at `~/code/julia_delftblue/Project.toml`
+  No Changes to `~/code/julia_delftblue/Project.toml`
+  No Changes to `~/code/julia_delftblue/Manifest.toml`
+ERROR: LoadError: ArgumentError: Package CUDA not found in current path:
+- Run `import Pkg; Pkg.add("CUDA")` to install the CUDA package.
+
+Stacktrace:
+ [1] require(into::Module, mod::Symbol)
+   @ Base ./loading.jl:893
+in expression starting at /home/paltmeyer/code/julia_delftblue/gpu_dl.jl:6
+srun: error: gpu010: task 0: Exited with exit code 1
+srun: launch/slurm: _step_signal: Terminating StepId=2601626.0
