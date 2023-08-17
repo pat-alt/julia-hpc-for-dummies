@@ -15,7 +15,6 @@ module load cuda/11.6
 
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
 
-# srun julia gpu_dl.jl > gpu_dl.log
-
+srun julia gpu_dl.jl > gpu_dl.log
 
 /usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/grep -v -F "$previous"
