@@ -1,5 +1,6 @@
 using Pkg
 Pkg.activate(@__DIR__)
+println(Pkg.status())
 Pkg.resolve()
 Pkg.instantiate()
 
