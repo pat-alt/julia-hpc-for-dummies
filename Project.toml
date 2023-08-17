@@ -1,0 +1,4 @@
+[deps]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
+cuDNN = "02a925ec-e4fe-4b08-9a7e-0d78e3d38ccd"
