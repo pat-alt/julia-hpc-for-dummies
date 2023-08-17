@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --name="PyTorch GPU"
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
 #SBATCH --mem=8G
