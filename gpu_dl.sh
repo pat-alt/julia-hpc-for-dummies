@@ -9,8 +9,7 @@
 #SBATCH --mem-per-cpu=1G
 #SBATCH --account=innovation
 
-module load 2022r2 openmpi julia
-module load 2022r2
+module load 2022r2 julia
 module load cuda/11.6
 
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
