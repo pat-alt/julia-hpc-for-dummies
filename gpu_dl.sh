@@ -2,9 +2,9 @@
 #
 #SBATCH --job-name="Julia on GPU"
 #SBATCH --partition=gpu
-#SBATCH --time=00:10:00
+#SBATCH --time=00:25:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --gpus-per-task=1
 #SBATCH --mem-per-cpu=1G
 #SBATCH --account=innovation
