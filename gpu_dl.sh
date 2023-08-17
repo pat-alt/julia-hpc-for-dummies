@@ -10,5 +10,7 @@
 #SBATCH --account=innovation
 
 module load 2022r2 openmpi julia
+module load 2022r2
+module load cuda/12.1
 
 srun julia gpu_dl.jl > gpu_dl.log
