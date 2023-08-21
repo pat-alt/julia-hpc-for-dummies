@@ -1,5 +1,5 @@
 [deps]
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
 MPI = "da04e1cc-30fd-572f-bb4f-1f8673147195"
-Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+MPIPreferences = "3da0fdf6-3ccc-4f1b-acd9-58baa6c99267"
 cuDNN = "02a925ec-e4fe-4b08-9a7e-0d78e3d38ccd"
