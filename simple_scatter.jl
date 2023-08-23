@@ -19,6 +19,12 @@ MPI.Barrier(comm)                                   # Wait for all processes to 
 
 println("P$(MPI.Comm_rank(comm)) behind barrier 🚧.\n")
 
-output = MPI.Reduce(nobs_local, vcat, comm)          # Reduce nobs_local to the sum of all nobs_local on rank 0
+MPI.Barrier(comm)
+
+if rank == 0
+    output = MPI.gather(nobs_local, comm)
+    output = reduce(vcat, output)
+    println("output = $(output)")
+end
 
 MPI.Finalize()
