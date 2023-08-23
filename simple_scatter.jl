@@ -9,7 +9,7 @@ rank = MPI.Comm_rank(comm)                          # Rank of this process in th
 n_proc = MPI.Comm_size(comm)                        # Number of processes in the world 🌍
 
 nobs = [10^i for i in 1:10]                         # Number of observations to simulate
-group_indices = split_obs(length(nobs), n_proc)     # Split nobs into groups of approximately equal size
+group_indices = split_obs(nobs, n_proc)             # Split nobs into groups of approximately equal size
 
 nobs_local = MPI.scatter(group_indices, comm)       # Scatter nobs to all processes
 
