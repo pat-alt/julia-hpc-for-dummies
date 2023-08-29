@@ -21,8 +21,9 @@ println("P$(MPI.Comm_rank(comm)) behind barrier 🚧.\n")
 
 MPI.Barrier(comm)
 
+output = MPI.gather(nobs_local, comm)
+
 if rank == 0
-    output = MPI.gather(nobs_local, comm)
     output = reduce(vcat, output)
     println("output = $(output)")
 end
