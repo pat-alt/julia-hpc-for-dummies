@@ -19,8 +19,8 @@ previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utili
 # Remaining job commands go below here. For example, to run python code that makes use of GPU resources:
 
 # Uncomment these lines and adapt them to load the software that your job requires
-module use /opt/insy/modulefiles          # Use DAIC INSY software collection
-module load cuda/11.2 cudnn/11.2-8.1.1.33 # Load certain versions of cuda and cudnn 
+module use /opt/insy/modulefiles          	# Use DAIC INSY software collection
+module load cuda/12.1				# Load certain versions of cuda and cudnn 
 srun julia gpu_dl.jl > gpu_dl.log
 
 # Measure GPU usage of your job (result)
