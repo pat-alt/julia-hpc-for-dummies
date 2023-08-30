@@ -1,15 +1,17 @@
-# Julia on DelftBlue
+# Julia on HPC for dummies
 
-Small repo that contains a number of Julia example scripts that can be used for testing on DelftBlue. 
+Small repo that contains a number of Julia example scripts that can be used for running Julia on an HPC.
 
 ## Things I've noted
 
+### Julia on DelftBlue
+
 Below I document some of the more disruptive issues I've encountered when trying to work with Julia on DelftBlue along with advice for troubleshooting.
-### Package manager is slow
+#### Package manager is slow
 
 For some reason, the package manager is incredibly slow on DelftBlue. Simple standard commands like `resolve`, `update`, `instantiate` can take a long time. 
 
-### Julia versions are specific
+#### Julia versions are specific
 
 Only very specific Julia versions are available on DelftBlue, each tied to one of the different software stacks. For example, at the time of writing, the following versions are available
 
@@ -58,7 +60,7 @@ Version `v1.6.3` is tied to the `2022r2` stack:
 
 This can lead to unexpected behaviour because packages are typically tested on the latest available (minor) version of Julia. For example, the `Zygote` auto-differentiation library is currently being [tested](https://github.com/FluxML/Zygote.jl/actions/runs/5892341473/job/15981385523#step:3:10) on Julia `v1.6.7`. It is not, as far as I can tell, being tested explicitly on `v1.6.3`. 
 
-#### Advice
+##### Advice
 
 Test things locally first, making sure that you are using the *exact* same Julia version as on DelftBlue. The easiest way to do this is using [`juliaup`](https://github.com/JuliaLang/juliaup) on your own device. Turning back to the `Zygote` example, let's see if this package is compatible with Julia `v1.6.3`. To do so, install and execute the corresponding Julia version as follows:
 
