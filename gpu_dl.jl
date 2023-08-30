@@ -4,9 +4,8 @@ using BenchmarkTools
 using CUDA
 using FastAI
 using FastVision
-using FastMakie
 using Metalhead
-import CairoMakie
+
 
 # Check that CUDA is functional:
 println("CUDA is functional: ", CUDA.functional())
