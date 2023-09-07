@@ -23,31 +23,31 @@ chosen = rand(findall(predict_label(M, counterfactual_data) .== factual), 100)
 xs = select_factual(counterfactual_data, chosen)
 generator = GenericGenerator()
 
-parallelizer = MPIParallelizer(MPI.COMM_WORLD, true)
+parallelizer = MPIParallelizer(MPI.COMM_WORLD)
 
 bmk = with_logger(NullLogger()) do
     benchmark(counterfactual_data; parallelizer=parallelizer)
 end
 
-n = 250
-
-@info "Benchmarking with MPI"
-time_mpi = @elapsed with_logger(NullLogger()) do
-    benchmark(counterfactual_data; parallelizer=parallelizer, n_individuals=n)
-end
-
-@info "Benchmarking without MPI"
-time_wo = @elapsed with_logger(NullLogger()) do
-    benchmark(counterfactual_data; parallelizer=nothing, n_individuals=n)
-end
-
-Serialization.serialize("docs/src/scripts/mpi_benchmark.jls", bmk)
-time_bmk = Dict(
-    :time_mpi => time_mpi,
-    :time_wo => time_wo,
-    :n => n,
-    :n_cores => MPI.Comm_size(MPI.COMM_WORLD),
-)
-Serialization.serialize("docs/src/scripts/mpi_benchmark_times.jls", time_bmk)
+# n = 250
+#
+# @info "Benchmarking with MPI"
+# time_mpi = @elapsed with_logger(NullLogger()) do
+#     benchmark(counterfactual_data; parallelizer=parallelizer, n_individuals=n)
+# end
+#
+# @info "Benchmarking without MPI"
+# time_wo = @elapsed with_logger(NullLogger()) do
+#     benchmark(counterfactual_data; parallelizer=nothing, n_individuals=n)
+# end
+#
+# Serialization.serialize("docs/src/scripts/mpi_benchmark.jls", bmk)
+# time_bmk = Dict(
+#     :time_mpi => time_mpi,
+#     :time_wo => time_wo,
+#     :n => n,
+#     :n_cores => MPI.Comm_size(MPI.COMM_WORLD),
+# )
+# Serialization.serialize("docs/src/scripts/mpi_benchmark_times.jls", time_bmk)
 
 MPI.Finalize()
