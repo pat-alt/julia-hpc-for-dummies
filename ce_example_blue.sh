@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name="Counterfactuals"
-#SBATCH --time=00:10:00
-#SBATCH --ntasks=8
+#SBATCH --time=00:15:00
+#SBATCH --ntasks=20
 #SBATCH --cpus-per-task=1
 #SBATCH --partition=compute
 #SBATCH --mem-per-cpu=1GB
@@ -10,4 +10,4 @@
 
 module load 2023rc1 openmpi julia
 
-srun julia hello_mpi.jl > hello_mpi.log
+srun julia ce_example.jl > ce_example.log
