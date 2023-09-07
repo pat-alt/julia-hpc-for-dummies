@@ -29,6 +29,7 @@ bmk = with_logger(NullLogger()) do
     benchmark(counterfactual_data; parallelizer=parallelizer)
 end
 
+println(bmk)
 # n = 250
 #
 # @info "Benchmarking with MPI"
