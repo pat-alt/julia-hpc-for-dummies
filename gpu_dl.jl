@@ -1,4 +1,5 @@
 using CUDA
+using cuDNN
 using FastAI
 using FastVision
 using Metalhead
@@ -11,6 +12,7 @@ println("CUDA is functional: ", CUDA.functional())
 
 if CUDA.functional()
     
+    println("hi")
     data, blocks = load(datarecipes()["mnist_sample"])
     train_data, _ = splitobs(data, at=1000)             # small sample to speed up training
 
