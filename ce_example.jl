@@ -17,26 +17,22 @@ end
 
 @info "An example of using CounterfactualExplanations.jl with MPI."
 
-counterfactual_data = load_linearly_separable(10000)
+counterfactual_data = load_linearly_separable(1000)
 M = fit_model(counterfactual_data, :Linear)
-factual = 1
-target = 2
-chosen = rand(findall(predict_label(M, counterfactual_data) .== factual), 100)
-xs = select_factual(counterfactual_data, chosen)
 generator = GenericGenerator()
 
 parallelizer = MPIParallelizer(MPI.COMM_WORLD)
 
 bmk = with_logger(NullLogger()) do
-    benchmark(counterfactual_data; parallelizer=parallelizer)
+    benchmark(counterfactual_data; parallelizer=parallelizer; n_individuals=5)
 end
 
 # Benchmarking:
-n = 5000
+n = 500
 
 @info "Benchmarking with MPI"
 time_mpi = @elapsed with_logger(NullLogger()) do
-    benchmark(counterfactual_data; parallelizer=parallelizer, n_individuals=n)
+    global bmk = benchmark(counterfactual_data; parallelizer=parallelizer, n_individuals=n)
 end
 
 @info "Benchmarking without MPI"
