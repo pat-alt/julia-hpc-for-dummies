@@ -28,7 +28,7 @@ bmk = with_logger(NullLogger()) do
 end
 
 # Benchmarking:
-n = 200
+n = 600
 
 @info "Benchmarking with MPI"
 time_mpi = @elapsed with_logger(NullLogger()) do
@@ -61,5 +61,4 @@ if MPI.Comm_rank(MPI.COMM_WORLD) == 0
 end
 
 Serialization.serialize("ce_mpi_benchmark_times.jls", time_bmk)
-
 MPI.Finalize()
