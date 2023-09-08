@@ -11,4 +11,4 @@
 
 module load 2023r1 openmpi julia
 
-srun julia --project multi_threading.jl > multi_threading.log
+srun julia --project --threads 8 multi_threading.jl > multi_threading.log
