@@ -1,4 +1,3 @@
-using BenchmarkTools
 using CUDA
 using FastAI
 using FastVision
@@ -6,7 +5,6 @@ using Metalhead
 
 # Get data:
 ENV["DATADEPS_ALWAYS_ACCEPT"] = "true"              # avoid command prompt and just download
-
 
 # Check that CUDA is functional:
 println("CUDA is functional: ", CUDA.functional())
