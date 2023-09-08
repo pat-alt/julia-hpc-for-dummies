@@ -15,7 +15,9 @@ else
     @info "Disabling logging on non-root processes."
 end
 
-counterfactual_data = load_linearly_separable()
+@info "An example of using CounterfactualExplanations.jl with MPI."
+
+counterfactual_data = load_linearly_separable(10000)
 M = fit_model(counterfactual_data, :Linear)
 factual = 1
 target = 2
@@ -29,7 +31,8 @@ bmk = with_logger(NullLogger()) do
     benchmark(counterfactual_data; parallelizer=parallelizer)
 end
 
-n = 250
+# Benchmarking:
+n = 5000
 
 @info "Benchmarking with MPI"
 time_mpi = @elapsed with_logger(NullLogger()) do
@@ -48,7 +51,19 @@ time_bmk = Dict(
     :n => n,
     :n_cores => MPI.Comm_size(MPI.COMM_WORLD),
 )
-println(time_bmk)
+
+MPI.Barrier(MPI.COMM_WORLD)
+
+if MPI.Comm_rank(MPI.COMM_WORLD) == 0
+    @info "Benchmarking results"
+    @info "Time with MPI: $(time_mpi)"
+    @info "Time without MPI: $(time_wo)"
+    @info "Speedup: $(time_wo / time_mpi)"
+    @info "Number of individuals: $(n)"
+    @info "Number of cores: $(MPI.Comm_size(MPI.COMM_WORLD))"
+    @info "Benchmarking results saved to ce_mpi_benchmark.jls"
+end
+
 Serialization.serialize("ce_mpi_benchmark_times.jls", time_bmk)
 
 MPI.Finalize()
