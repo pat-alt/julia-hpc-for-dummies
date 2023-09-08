@@ -24,7 +24,7 @@ generator = GenericGenerator()
 parallelizer = MPIParallelizer(MPI.COMM_WORLD)
 
 bmk = with_logger(NullLogger()) do
-    benchmark(counterfactual_data; parallelizer=parallelizer; n_individuals=5)
+    benchmark(counterfactual_data; parallelizer=parallelizer, n_individuals=5)
 end
 
 # Benchmarking:
