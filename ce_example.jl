@@ -15,7 +15,7 @@ else
     @info "Disabling logging on non-root processes."
 end
 
-@info "An example of using CounterfactualExplanations.jl with MPI."
+@info "An example of using CounterfactualExplanations.jl with MPI and multi-threading."
 
 counterfactual_data = load_linearly_separable(1000)
 M = fit_model(counterfactual_data, :Linear)
