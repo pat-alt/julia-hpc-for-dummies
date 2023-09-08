@@ -8,12 +8,12 @@
 #SBATCH --gpus-per-task=1
 #SBATCH --mem-per-cpu=1G
 #SBATCH --account=innovation
+#SBATCH --mail-type=END
 
 module load 2023r1 julia
-module load cuda/12.1
 
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
 
-srun julia cuda_is_functional.jl > cuda_is_functional.log
+srun julia --project cuda_is_functional.jl > cuda_is_functional.log
 
 /usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/grep -v -F "$previous"
