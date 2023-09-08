@@ -10,7 +10,7 @@
 #SBATCH --account=innovation
 
 module load 2023r1 julia
-module load cuda/11.6
+module load cuda/12.1
 
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
 
