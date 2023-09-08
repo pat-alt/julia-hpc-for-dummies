@@ -28,7 +28,7 @@ bmk = with_logger(NullLogger()) do
 end
 
 # Benchmarking:
-n = 500
+n = 200
 
 @info "Benchmarking with MPI"
 time_mpi = @elapsed with_logger(NullLogger()) do
@@ -52,8 +52,8 @@ MPI.Barrier(MPI.COMM_WORLD)
 
 if MPI.Comm_rank(MPI.COMM_WORLD) == 0
     @info "Benchmarking results"
-    @info "Time with MPI: $(time_mpi)"
-    @info "Time without MPI: $(time_wo)"
+    @info "Time with MPI: $(round(time_mpi)) seconds."
+    @info "Time without MPI: $(round(time_wo)) seconds."
     @info "Speedup: $(time_wo / time_mpi)"
     @info "Number of individuals: $(n)"
     @info "Number of cores: $(MPI.Comm_size(MPI.COMM_WORLD))"
