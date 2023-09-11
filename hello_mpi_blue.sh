@@ -8,6 +8,6 @@
 #SBATCH --mem-per-cpu=1GB
 #SBATCH --account=innovation
 
-module load 2023rc1 openmpi julia
+module load 2023rc1 openmpi
 
-srun julia hello_mpi.jl > hello_mpi.log
+srun julia --project hello_mpi.jl > hello_mpi.log
