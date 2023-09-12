@@ -20,9 +20,11 @@ if CUDA.functional()
     gpu_learner = tasklearner(task, train_data, callbacks=[ToGPU(), Metrics(accuracy)], backbone=ResNet(18).layers[1:end-1], batchsize=bs)
     cpu_learner = tasklearner(task, train_data, callbacks=[Metrics(accuracy)], backbone=ResNet(18).layers[1:end-1], batchsize=bs)
     warm_up_learner = deepcopy(cpu_learner)
+    warm_up_learner_gpu = deepcopy(gpu_learner)
 
     # Warm up:
     finetune!(warm_up_learner, 1)
+    finetune!(warm_up_learner_gpu, 1)
 
     # Benchmark:
     @info "Training on CPU:"
