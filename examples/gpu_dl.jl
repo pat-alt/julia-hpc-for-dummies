@@ -11,8 +11,7 @@ ENV["DATADEPS_ALWAYS_ACCEPT"] = "true"              # avoid command prompt and j
 println("CUDA is functional: ", CUDA.functional())
 
 if CUDA.functional()
-    
-    data, blocks = load(datarecipes()["mnist_sample"])
+    data, blocks = load(datarecipes()["mnist_png"])
     train_data, _ = splitobs(data, at=1000)             # small sample to speed up training
 
     # Set up learners:
@@ -27,10 +26,10 @@ if CUDA.functional()
 
     # Benchmark:
     @info "Training on CPU:"
-    @time finetune!(cpu_learner, 3)
+    @time finetune!(cpu_learner, 1)
 
     @info "Training on GPU:"
-    @time finetune!(gpu_learner, 3)
+    @time finetune!(gpu_learner, 1)
 else 
     @info "Terminating."
 end
