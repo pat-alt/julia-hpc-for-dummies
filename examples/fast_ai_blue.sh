@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#SBATCH --job-name="Deep Learning on GPU"
+#SBATCH --job-name="FastAI on GPU"
 #SBATCH --partition=gpu
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
