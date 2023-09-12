@@ -27,10 +27,10 @@ if CUDA.functional()
 
     # Benchmark:
     @info "Training on CPU:"
-    @time finetune!(cpu_learner, 5)
+    @time finetune!(cpu_learner, 3)
 
     @info "Training on GPU:"
-    @time finetune!(gpu_learner, 5)
+    @time finetune!(gpu_learner, 3)
 else 
     @info "Terminating."
 end
