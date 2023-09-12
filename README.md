@@ -7,6 +7,11 @@ Small repo that contains a number of Julia example scripts that can be used for 
 ### Julia on DelftBlue
 
 Below I document some of the more disruptive issues I've encountered when trying to work with Julia on DelftBlue along with advice for troubleshooting.
+
+#### Self-install
+
+To enhoy the easiest and most pain-free experience of running Julia on DelftBlue, I currently recommend to install Julia from scratch ...
+
 #### Package manager is slow
 
 For some reason, the package manager is incredibly slow on DelftBlue. Simple standard commands like `resolve`, `update`, `instantiate` can take a long time. 
