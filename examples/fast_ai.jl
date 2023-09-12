@@ -23,13 +23,14 @@ if CUDA.functional()
     warm_up_learner_gpu = deepcopy(gpu_learner)
 
     # Warm up:
+    @info "Warming up on CPU:"
     finetune!(warm_up_learner, 1)
+    @info "Warming up on GPU:"
     finetune!(warm_up_learner_gpu, 1)
 
     # Benchmark:
     @info "Training on CPU:"
     @time finetune!(cpu_learner, 1)
-
     @info "Training on GPU:"
     @time finetune!(gpu_learner, 1)
 else 
