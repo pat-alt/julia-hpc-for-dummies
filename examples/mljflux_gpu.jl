@@ -8,7 +8,7 @@ model = @load NeuralNetworkClassifier pkg=MLJFlux
 
 # Warm up:
 warmup = NeuralNetworkClassifier()
-warmup_gpu = NeuralNetworkClassifier(accelaration=CUDALibs())
+warmup_gpu = NeuralNetworkClassifier(acceleration=CUDALibs())
 machine(warmup, X, y) |> fit!
 machine(warmup_gpu, X, y) |> fit!
 

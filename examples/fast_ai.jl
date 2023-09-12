@@ -11,10 +11,13 @@ ENV["DATADEPS_ALWAYS_ACCEPT"] = "true"              # avoid command prompt and j
 println("CUDA is functional: ", CUDA.functional())
 
 if CUDA.functional()
-    data, blocks = load(datarecipes()["mnist_png"])
+    # Get data:
+    @info "Getting data..."
+    data, blocks = load(datarecipes()["mnist_sample"])
     train_data, _ = splitobs(data, at=1000)             # small sample to speed up training
 
     # Set up learners:
+    @info "Setting up learners..."
     task = ImageClassificationSingle(blocks)
     bs = 100
     gpu_learner = tasklearner(task, train_data, callbacks=[ToGPU(), Metrics(accuracy)], backbone=ResNet(18).layers[1:end-1], batchsize=bs)
