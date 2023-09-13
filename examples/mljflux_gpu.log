@@ -1,2 +1,3 @@
 import MLJFlux ✔
- 10.262541 seconds (82.82 M allocations: 4.965 GiB, 10.73% gc time)
+ 10.710407 seconds (82.55 M allocations: 4.952 GiB, 13.22% gc time)
+124.737946 seconds (310.29 M allocations: 19.678 GiB, 5.91% gc time)
