@@ -3,7 +3,8 @@ using MLJFlux
 using JointEnergyModels
 
 X, y = make_blobs(100, 3; centers=2, cluster_std=[1.0, 3.0])
-X = Float32.(X)
+X = Float32.(matrix(X))
+X = table(X)
 model = @load NeuralNetworkClassifier pkg = MLJFlux
 
 𝒟x = Normal()
