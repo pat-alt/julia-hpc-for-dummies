@@ -1,4 +1,5 @@
 using Distributions
+using Flux
 using JointEnergyModels
 using MLJ
 using MLJFlux
