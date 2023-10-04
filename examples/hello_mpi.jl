@@ -9,6 +9,7 @@ if MPI.Comm_rank(comm) == 0
    # Multi-threading:
    a = zeros(10)
    Threads.@threads for i = 1:10
+      sleep(120)
       a[i] = Threads.threadid()
    end
 
