@@ -13,4 +13,4 @@ module load 2023r1 openmpi julia
 
 export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
 
-srun julia --project --threads 8 examples/multi_threading.jl > multi_threading.log
+srun julia --project=examples --threads 8 examples/multi_threading.jl > multi_threading.log
