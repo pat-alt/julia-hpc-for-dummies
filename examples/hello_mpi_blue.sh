@@ -12,4 +12,4 @@ module load 2023rc1 openmpi
 
 export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
 
-srun julia --project hello_mpi.jl > hello_mpi.log
+srun julia --project examples/hello_mpi.jl > hello_mpi.log
