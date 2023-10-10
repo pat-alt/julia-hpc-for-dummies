@@ -1,6 +1,7 @@
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+ClusterManagers = "34f1f09b-3a8b-5176-ab39-66d58a4d544e"
 CounterfactualExplanations = "2f13d31b-18db-44c1-bc43-ebaf2cff0be0"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 FastAI = "5d0beca9-ade8-49ae-ad0b-a3cf890e669f"
