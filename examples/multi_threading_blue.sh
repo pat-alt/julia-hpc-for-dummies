@@ -10,7 +10,8 @@
 #SBATCH --mail-type=END     # Set mail type to 'END' to receive a mail when the job finishes. 
 
 module load 2023r1 julia
+set -x
 
 export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
 
-srun julia --project=examples --threads 1 examples/multi_threading.jl > multi_threading.log
+srun julia --project=examples --threads $SRUN_CPUS_PER_TASK examples/multi_threading.jl > multi_threading.log
