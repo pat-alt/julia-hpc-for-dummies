@@ -3,7 +3,7 @@
 #SBATCH --job-name="Multi-threading"
 #SBATCH --time=00:05:00
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=9
+#SBATCH --cpus-per-task=5
 #SBATCH --partition=compute
 #SBATCH --mem-per-cpu=1GB
 #SBATCH --account=innovation
