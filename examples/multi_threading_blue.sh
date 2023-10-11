@@ -13,5 +13,6 @@ module load 2023r1 julia
 set -x
 
 export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
+export OPENBLAS_NUM_THREADS=1
 
 srun julia --project=examples --threads $SRUN_CPUS_PER_TASK examples/multi_threading.jl > examples/multi_threading.log
