@@ -9,7 +9,6 @@
 #SBATCH --account=innovation
 #SBATCH --mail-type=END     # Set mail type to 'END' to receive a mail when the job finishes. 
 
-module load 2023r1 julia
 set -x
 
 export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
