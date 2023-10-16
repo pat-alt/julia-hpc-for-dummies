@@ -9,9 +9,6 @@
 #SBATCH --account=innovation
 #SBATCH --mail-type=END     # Set mail type to 'END' to receive a mail when the job finishes. 
 
-set -x
-
-export SRUN_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK"
-export OPENBLAS_NUM_THREADS=1
+source examples/slurm_header.sh
 
 srun julia --project=examples --threads $SRUN_CPUS_PER_TASK examples/multi_threading.jl > examples/multi_threading.log
