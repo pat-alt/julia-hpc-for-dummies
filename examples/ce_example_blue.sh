@@ -13,4 +13,4 @@ module load 2023rc1 openmpi
 
 source examples/slurm_header.sh
 
-srun julia --project --threads $SRUN_CPUS_PER_TASK examples/ce_example.jl > ce_example.log
+srun julia --project=examples --threads $SRUN_CPUS_PER_TASK examples/ce_example.jl > ce_example.log
