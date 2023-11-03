@@ -12,6 +12,8 @@ if MPI.Comm_rank(comm) == 0
       a[i] = Threads.threadid()
    end
 
+   println(a)
+
 end
 
 MPI.Barrier(comm)
