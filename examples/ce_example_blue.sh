@@ -9,6 +9,8 @@
 #SBATCH --account=innovation
 #SBATCH --mail-type=END     # Set mail type to 'END' to receive a mail when the job finishes. 
 
-module load 2023r1 openmpi julia
+module load 2023rc1 openmpi
 
-srun julia --project --threads 8 ce_example.jl > ce_example.log
+source examples/slurm_header.sh
+
+srun julia --project --threads $SRUN_CPUS_PER_TASK ce_example.jl > ce_example.log
