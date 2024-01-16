@@ -12,6 +12,8 @@
 
 module load 2023r1
 
+source examples/slurm_header.sh
+
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2')
 
 srun julia --project=examples examples/fast_ai.jl > examples/fast_ai.log

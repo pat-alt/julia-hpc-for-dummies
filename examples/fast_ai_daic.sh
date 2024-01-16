@@ -11,6 +11,8 @@
 
 #SBATCH --gres=gpu:1 # Request 1 GPU
 
+source examples/slurm_header.sh
+
 # Measure GPU usage of your job (initialization)
 previous=$(/usr/bin/nvidia-smi --query-accounted-apps='gpu_utilization,mem_utilization,max_memory_usage,time' --format='csv' | /usr/bin/tail -n '+2') 
 
