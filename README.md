@@ -47,12 +47,11 @@ Then Julia can be run as follows:
 |__/                   |
 ```
 
-!!! tip "An optional title"
-    To avoid running out of memory on your `home/` drive, you may want to move the `juliaup` installation to `scratch`:
-
-    ```
-    mkdir -p /scratch/${USER}/.juliaup
-    ln -s /scratch/${USER}/.juliaup $HOME/.juliaup
-    ```
+> [!TIP]
+To avoid running out of memory on your `home/` drive, you may want to move the `juliaup` installation to `scratch`:
+```
+mkdir -p /scratch/${USER}/.juliaup
+ln -s /scratch/${USER}/.juliaup $HOME/.juliaup
+```
 
 ### Julia on DAIC
