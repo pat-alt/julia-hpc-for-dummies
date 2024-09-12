@@ -10,7 +10,7 @@
 #SBATCH --account=innovation
 #SBATCH --mail-type=END
 
-module load 2023r1
+module load 2024r1
 
 source examples/slurm_header.sh
 
