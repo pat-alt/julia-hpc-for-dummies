@@ -16,7 +16,7 @@ This section contains notes that are not specific to any particular cluster. Any
 
 ### OpenBLAS thread calling
 
-It is typically best to restrict the number of BLAS threads with `export OPENBLAS_NUM_THREADS=1`.
+It is typically best to restrict the number of BLAS threads with `export OPENBLAS_NUM_THREADS=1`. 
 
 ### Data
 
@@ -32,7 +32,12 @@ DelftBlue is one of the high-performance computers accessible to students and em
 
 #### Self-install
 
-As an alternative to using the software stack, you may want to install Julia from scratch. This makes managing your personalized Julia installation almost as easy as on you own device. This can be done as follows:
+As an alternative to using the software stack, you may want to install Julia from scratch. This makes managing your personalized Julia installation almost as easy as on you own device. 
+
+> [!WARNING]
+> If you use this option, you must ensure that OpenBLAS calls only 1 thread (see above). 
+
+This can be done as follows:
 
 1. Follow the instructions in docs for linking scratch spaces to home: https://doc.dhpc.tudelft.nl/delftblue/howtos/Julia-with-MPI/#installing-mpi-package
 2. Install `juliaup` as follows: `curl -fsSL https://install.julialang.org | sh`.
