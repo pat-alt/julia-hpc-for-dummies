@@ -10,13 +10,17 @@ All notes are collected in this README file. Many of them are specific to workin
 
 Some of the examples you find here are either inspired or in some cases partially copied from [`MPI.jl`](https://juliaparallel.org/MPI.jl/latest/).
 
-## General notes
+## Environment Configuration
 
-This section contains notes that are not specific to any particular cluster. Anything related to geenral setup can be found in the [`examples/slurm_header.sh`](examples/slurm_header.sh) script.
+This section contains notes that are not specific to any particular cluster. Anything related to general setup can be found in the [`examples/slurm_header.sh`](examples/slurm_header.sh) script.
 
 ### OpenBLAS thread calling
 
 It is typically best to restrict the number of BLAS threads with `export OPENBLAS_NUM_THREADS=1`.
+
+### Data
+
+If your project relies on data that is loaded from the web, then this will most likely be handled through the [DataDeps.jl](https://www.oxinabox.net/DataDeps.jl/stable/) package. For example, you might be interested in loading standard datasets from [MLDatasets.jl](https://github.com/JuliaML/MLDatasets.jl). That package depends on [DataDeps.jl](https://www.oxinabox.net/DataDeps.jl/stable/). In an interactive Julia session, users are by default prompted before data is actually downloaded. To bypass this on the cluster, the [`examples/slurm_header.sh`](examples/slurm_header.sh) specifies a special environment variable `export DATADEPS_ALWAYS_ACCEPT="true"`.
 
 ## Cluster-specific Notes
 
@@ -53,5 +57,7 @@ To avoid running out of memory on your `home/` drive, you may want to move the `
 mkdir -p /scratch/${USER}/.juliaup
 ln -s /scratch/${USER}/.juliaup $HOME/.juliaup
 ```
+
+
 
 ### Julia on DAIC
